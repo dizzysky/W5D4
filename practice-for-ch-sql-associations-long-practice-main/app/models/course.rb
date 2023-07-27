@@ -12,10 +12,11 @@
 class Course < ApplicationRecord
 
 
-    # belongs_to :prereq,
-    # primary_key: :id, 
-    # foreign_key: :prereq_id, 
-    # class: 
+    belongs_to :prereq,
+    primary_key: :id, 
+    foreign_key: :prereq_id, 
+    class_name: :Course,
+    optional: true
 
 
     has_many :enrollments, 
@@ -27,6 +28,11 @@ class Course < ApplicationRecord
     has_many :students, 
     through: :enrollments, 
     source: :user
+
+    belongs_to :instructor,
+    primary_key: :id,
+    foreign_key: :instructor_id,
+    class_name: :User
 
 
 
