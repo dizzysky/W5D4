@@ -27,7 +27,7 @@ class Course < ApplicationRecord
 
     has_many :students, 
     through: :enrollments, 
-    source: :user
+    source: :student
 
     belongs_to :instructor,
     primary_key: :id,
